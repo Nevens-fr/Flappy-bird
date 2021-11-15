@@ -3,15 +3,17 @@ from Affichable import affichable
 import Map
 import Player
 
-screen = Draw.create_window(672, 384, "Flappy bird")
-m = Map.tilemap()
-p = Player.joueur(672*0.1, 382/2)
+WIDTH = 672
+HEIGHT = 384
+
+screen = Draw.create_window(WIDTH, HEIGHT, "Flappy bird")
+m = Map.tilemap() 
+p = Player.joueur(WIDTH*0.1, HEIGHT/2)
 #t = affichable((0,0), "Assets/logo_NS.png")
-i = 0
-while i < 1 :
+
+while True :
     m.afficheMap(screen)
-    Draw.drawRect(screen, p)
+    p.updatePlayerMovement(screen)
     Draw.drawScreenUpdate()
-    Draw.attente(2500)
-    i+=1
-    m.updateMap()
+    p.collisions(m)
+    Draw.quit()

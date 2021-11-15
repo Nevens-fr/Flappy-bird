@@ -44,3 +44,25 @@ def drawBlit(screen, *arg):
 def drawRect(screen, *arg):
     for x in arg:
         pg.draw.rect(screen, x.getColor(), x.getImg())
+
+
+########################################################################
+########## KEYBOAD #####################################################
+
+#Getter de la liste des touches
+def getEvent():
+    return pg.key.get_pressed()
+
+#renvoie vrai si la touche espace est utilisée
+def spaceBarKey():
+    event = getEvent()
+    return event[pg.K_SPACE]
+
+#Quitte la fenetre si la croix est utilisée
+def quit():
+    for events in pg.event.get():
+        if events.type == pg.QUIT:
+            exit()
+    event = getEvent()
+    if event[pg.K_ESCAPE]:
+        exit()
