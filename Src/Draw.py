@@ -12,6 +12,10 @@ def create_window(width, height, title):
     #pg.display.set_icon(logo)
     return screen
 
+#Nettoie l'écran des images résiduelles
+def clearScreen(screen):
+    screen.fill(0)
+
 def attente(temps):
     pg.time.wait(temps)
         

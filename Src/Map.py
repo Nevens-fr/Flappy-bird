@@ -28,20 +28,21 @@ class tilemap(exampleClass.example):
     def afficheMap(self, screen):
         i = 0
         j = 0
+    
+        for ligne in self.tab:
+            for colonne in ligne:
+                if colonne == "0":
+                    self.img = self.imgSky
+                else:
+                    self.img = self.imgPipe
+                self.coords = (i,j)
+                Draw.drawBlit(screen, self)
+                i+= self.size
+            j+= self.size
+            i = 0
         if self.temps + self.addTemps <= Draw.getTime():
-            for ligne in self.tab:
-                for colonne in ligne:
-                    if colonne == "0":
-                        self.img = self.imgSky
-                    else:
-                        self.img = self.imgPipe
-                    self.coords = (i,j)
-                    Draw.drawBlit(screen, self)
-                    i+= self.size
-                j+= self.size
-                i = 0
-            self.temps = Draw.getTime()
             self.updateMap()
+            self.temps = Draw.getTime()
 
     def updateMap(self):
         self.tab = Utils.createNextObstacle(self.tab)

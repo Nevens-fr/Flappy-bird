@@ -6,6 +6,7 @@ import Draw
 #Classe permettant de gérer le joueur
 class joueur(exampleClass.example):
 
+    #constructeur
     def __init__(self, coordX, coordY):
         self.img = Draw.createImg("Assets/piaf.png")
         self.temps = Draw.getTime()
@@ -13,7 +14,7 @@ class joueur(exampleClass.example):
         self.coordX = coordX
         self.coordY = coordY
         self.addTemps = 10
-        self.addMove = 3
+        self.addMove = 5
 
     #affichage du joueur
     def drawPlayer(self, screen):
