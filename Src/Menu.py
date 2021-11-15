@@ -3,6 +3,7 @@
 import Map
 import Player
 import Draw
+from Affichable import affichable
 
 #Affichage d'un menu
 def menu(screen, WIDTH, HEIGHT):
@@ -27,6 +28,13 @@ def ecranNoir(screen):
     Draw.drawScreenUpdate()
     Draw.attente(250)
 
+def gameOver(screen, WIDTH, HEIGHT):
+    t = affichable((WIDTH *0.25,HEIGHT* 0.25), "Assets/gameOver.png")
+    screen.fill(0)
+    Draw.drawBlit(screen, t)
+    Draw.drawScreenUpdate()
+    Draw.attente(1000)
+
 #Lance une partie
 def jeu(screen, WIDTH, HEIGHT):
     m = Map.tilemap() 
@@ -41,7 +49,7 @@ def jeu(screen, WIDTH, HEIGHT):
         Draw.quit()                     # vérification de l'état de la fenêtre (croix)
         m.updateMap()                   # Change la carte au fur et à mesure
         if p.collisions(m):                 # vérifie les collisions
-            ecranNoir(screen)
+            gameOver(screen, WIDTH, HEIGHT)
             break
 
         if Draw.escapeKey():            # le joueur veut revenir au menu
