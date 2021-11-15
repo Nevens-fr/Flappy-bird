@@ -21,7 +21,7 @@ def createImg(path):
     	
 #Retourne un rectangle
 def createRect(left, top, width, height):
-   	return pg.Rect(left, top, widh, height)
+   	return pg.Rect(left, top, width, height)
    		
 #Retourne le temps en millisecondes
 def getTime():
@@ -43,4 +43,4 @@ def drawBlit(screen, *arg):
 #Dessine des rectangles
 def drawRect(screen, *arg):
     for x in arg:
-        pg.draw.rect(screen, x.getColor, x.getImg)
+        pg.draw.rect(screen, x.getColor(), x.getImg())
