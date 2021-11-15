@@ -1,21 +1,14 @@
 import Draw
 from Affichable import affichable
-import Map
-import Player
+import Menu
 
 WIDTH = 672
 HEIGHT = 384
 
 screen = Draw.create_window(WIDTH, HEIGHT, "Flappy bird")
-m = Map.tilemap() 
-p = Player.joueur(WIDTH*0.1, HEIGHT/2)
-#t = affichable((0,0), "Assets/logo_NS.png")
+t = affichable((WIDTH *0.1,HEIGHT* 0.1), "Assets/logo_NS.png")
+Draw.drawBlit(screen, t)
+Draw.drawScreenUpdate()
+Draw.attente(2500)
 
-while True :
-    Draw.clearScreen(screen)
-    m.afficheMap(screen)
-    p.updatePlayerMovement(screen)
-    p.drawPlayer(screen)
-    Draw.drawScreenUpdate()
-    p.collisions(m)
-    Draw.quit()
+Menu.menu(screen, WIDTH, HEIGHT)

@@ -67,6 +67,7 @@ def quit():
     for events in pg.event.get():
         if events.type == pg.QUIT:
             exit()
+
+def escapeKey():
     event = getEvent()
-    if event[pg.K_ESCAPE]:
-        exit()
+    return event[pg.K_ESCAPE]

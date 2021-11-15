@@ -40,9 +40,9 @@ class tilemap(exampleClass.example):
                 i+= self.size
             j+= self.size
             i = 0
-        if self.temps + self.addTemps <= Draw.getTime():
-            self.updateMap()
-            self.temps = Draw.getTime()
-
+            
+    #Met la map à jour
     def updateMap(self):
-        self.tab = Utils.createNextObstacle(self.tab)
+        if self.temps + self.addTemps <= Draw.getTime():
+            self.tab = Utils.createNextObstacle(self.tab)
+            self.temps = Draw.getTime()
