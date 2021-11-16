@@ -12,7 +12,7 @@ def menu(screen, WIDTH, HEIGHT):
 
     while True :
         Draw.clearScreen(screen)
-        m.afficheMap(screen)
+        m.affichageMapFixe(screen)
         p.drawPlayer(screen)
         Draw.drawScreenUpdate()
         Draw.quit()

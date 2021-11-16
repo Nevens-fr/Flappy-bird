@@ -60,11 +60,20 @@ class joueur(exampleClass.example):
         size = tilemap.getSize()
         tab = tilemap.getTab()
 
-        i = int(self.coordX / size)
+        i = int(self.coordX / size)# collision haut gauche
         j = int(self.coordY / size)
 
+        i1 = int((self.coordX + size) /size)#collission haut droite
+        j1 = int(self.coordY / size)
+
+        i2 = int(self.coordX / size)    #collision bas gauche
+        j2 = int((self.coordY + size) /size)
+
+        i2 = int((self.coordX + size) / size)    #collision bas droite
+        j2 = int((self.coordY + size) /size)
+
         try:
-            if tab[j][i] == "0":
+            if tab[j][i] == "0" and tab[j1][i1] == "0" and tab[j2][i2] == "0":
                 return False
             else:
                 return True
