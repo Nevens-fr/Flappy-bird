@@ -4,16 +4,21 @@ import Map
 import Player
 import Draw
 from Affichable import affichable
+import Spacebar
 
 #Affichage d'un menu
 def menu(screen, WIDTH, HEIGHT):
     m = Map.tilemap() 
     p = Player.joueur(WIDTH*0.1, HEIGHT/2)
+    s = Spacebar.spaceBarKey(WIDTH * 0.35, HEIGHT * 0.6)
+    t = affichable((WIDTH *0.3,HEIGHT* 0.1), "Assets/title.png")
 
     while True :
         Draw.clearScreen(screen)
         m.affichageMapFixe(screen)
         p.drawPlayer(screen)
+        s.afficheBar(screen)
+        Draw.drawBlit(screen, t)
         Draw.drawScreenUpdate()
         Draw.quit()
         p.animation()
