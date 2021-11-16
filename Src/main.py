@@ -5,7 +5,7 @@ import Menu
 WIDTH = 672
 HEIGHT = 384
 
-screen = Draw.create_window(WIDTH, HEIGHT, "Flappy bird")
+screen = Draw.create_window(WIDTH, HEIGHT, "Flappy bird", Draw.createImg("Assets/piaf.png"))
 t = affichable((WIDTH *0.15,HEIGHT* 0.1), "Assets/logo_NS.png")
 Draw.drawBlit(screen, t)
 Draw.drawScreenUpdate()

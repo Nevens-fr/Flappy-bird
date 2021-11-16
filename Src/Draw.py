@@ -1,7 +1,7 @@
 import pygame as pg
 
 # Création et set up de la fenetre
-def create_window(width, height, title):
+def create_window(width, height, title, logoPath):
     pg.init()
     pg.font.init()
 
@@ -9,7 +9,7 @@ def create_window(width, height, title):
 
     pg.display.set_caption(title)
 
-    #pg.display.set_icon(logo)
+    pg.display.set_icon(logoPath)
     return screen
 
 #Nettoie l'écran des images résiduelles
