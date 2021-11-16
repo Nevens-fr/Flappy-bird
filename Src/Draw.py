@@ -68,6 +68,7 @@ def quit():
         if events.type == pg.QUIT:
             exit()
 
+#renvoie vrai si la touche echap est utilisée
 def escapeKey():
     event = getEvent()
     return event[pg.K_ESCAPE]

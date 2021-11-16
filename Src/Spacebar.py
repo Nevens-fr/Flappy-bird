@@ -1,8 +1,9 @@
 import Draw
 import exampleClass
 
+#Classe permettant d'afficher une barre espace animée sur le menu
 class spaceBarKey(exampleClass.example):
-
+    #constructeur
     def __init__(self, coordX, coordY):
         self.imgClicked = Draw.createImg("Assets/clicked_spacebar.png")
         self.imgNClicked = Draw.createImg("Assets/spacebar.png")
