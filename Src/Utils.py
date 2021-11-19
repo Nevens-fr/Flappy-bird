@@ -118,11 +118,16 @@ def createNextObstacle(map):
 
 #Compare le score avec le score précédent. Sauvegarde le meilleur des deux
 def saveScore(score):
-    f = open("Assets/score.txt", "r")
+    try:
+        f = open("Assets/score.txt", "r")
 
-    pred = int(f.readline())
+        pred = int(f.readline())
 
-    f.close()
+        f.close()
+    except:
+        f = open("Assets/score.txt", "w")
+        pred = 0
+        f.close()
 
     f = open("Assets/score.txt", "w")
 
@@ -134,8 +139,10 @@ def saveScore(score):
 
 #Charge le meilleur score
 def loadScore():
-    f = open("Assets/score.txt", "r")
-    tmp = f.readline()
-    f.close()
-    return int(tmp)
-
+    try:
+        f = open("Assets/score.txt", "r")
+        tmp = f.readline()
+        f.close()
+        return int(tmp)
+    except:
+        return 0

@@ -41,7 +41,7 @@ def ecranNoir(screen):
     Draw.attente(250)
 
 def gameOver(screen, WIDTH, HEIGHT):
-    t = affichable((WIDTH *0.25,HEIGHT* 0.25), "Assets/gameOver.png")
+    t = affichable((WIDTH *0.21,HEIGHT* 0.21), "Assets/gameOver.png")
     screen.fill(0)
     Draw.drawBlit(screen, t)
     Draw.drawScreenUpdate()
