@@ -14,12 +14,16 @@ def menu(screen, WIDTH, HEIGHT):
     p = Player.joueur(WIDTH*0.1, HEIGHT/2)
     s = Spacebar.spaceBarKey(WIDTH * 0.35, HEIGHT * 0.6)
     t = affichable((WIDTH *0.3,HEIGHT* 0.1), "Assets/title.png")
+    score = affichable((WIDTH * 0.8, HEIGHT*0.8), "Assets/score.png")
+    pts = Points.Points(WIDTH * 0.9, HEIGHT*0.9)
+    pts.setPts(Utils.loadScore())
 
     while True :
         Draw.clearScreen(screen)
         m.affichageMapFixe(screen)
         p.drawPlayer(screen)
         s.afficheBar(screen)
+        Draw.drawBlit(screen, score, pts)
         Draw.drawBlit(screen, t)
         Draw.drawScreenUpdate()
         Draw.quit()
@@ -27,6 +31,7 @@ def menu(screen, WIDTH, HEIGHT):
         if Draw.spaceBarKey():#lance le jeu en mettant une attente de quelques instants 
             ecranNoir(screen)
             jeu(screen, WIDTH, HEIGHT)
+            pts.setPts(Utils.loadScore())
         if Draw.escapeKey():
             exit()
 
@@ -58,6 +63,8 @@ def jeu(screen, WIDTH, HEIGHT):
         Draw.quit()                     # vérification de l'état de la fenêtre (croix)
         if m.updateMap():               # Change la carte au fur et à mesure
             pts.addPoints()             # augmentation des points
+        if pts.speedUp():               # augmente la vitesse de la map selon le score
+            m.addVitesse()
         if p.collisions(m):             # vérifie les collisions
             gameOver(screen, WIDTH, HEIGHT)
             Utils.saveScore(pts.getPts())

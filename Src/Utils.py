@@ -129,13 +129,13 @@ def saveScore(score):
     if pred < score:
         f.write(str(score))
     else:
-        g.write(str(pred))
+        f.write(str(pred))
     f.close
 
 #Charge le meilleur score
 def loadScore():
     f = open("Assets/score.txt", "r")
-    tmp = int(f.readline())
+    tmp = f.readline()
     f.close()
-    return tmp
+    return int(tmp)
 
