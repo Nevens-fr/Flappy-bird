@@ -20,7 +20,7 @@ class Points(exampleClass.example):
     # Change les points
     def setPts(self, pts):
         self.pts = pts
-        self.img = Draw.rendertexte(self.font, str(self.pts), False, self.color)
+        self.img = Draw.rendertexte(self.font, str(self.pts), True, self.color)
     
     # Autorise le jeu a accelerer le défilement selon les points acquis
     def speedUp(self):

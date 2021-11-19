@@ -9,8 +9,7 @@ class tilemap(exampleClass.example):
     #Constructeur
     def __init__(self):
         self.color = (0,0,0)
-        self.imgSky = Draw.createImg("Assets/sky.png")
-        self.imgPipe = Draw.createImg("Assets/pipe.png")
+        self.img = Draw.createImg("Assets/tile.png")
         self.coords = (0,0)
         self.size = 32
         self.depart = 0
@@ -18,13 +17,20 @@ class tilemap(exampleClass.example):
         self.tab = Utils.loadCSV()
         self.addTemps = 400
         self.vitesse = 3
+        self.rect = Draw.createRect(0, 0, self.size, self.size)
 
+    #augmente la vitesse de défilement
     def addVitesse(self):
         self.vitesse += 1
 
+    def getRect(self):
+        return self.rect
+
+    #getter de la map
     def getTab(self):
         return self.tab
     
+    #retourne la hauteur d'une texture
     def getSize(self):
         return self.size
 
@@ -41,11 +47,11 @@ class tilemap(exampleClass.example):
         for ligne in self.tab:
             for colonne in ligne:
                 if colonne == "0":
-                    self.img = self.imgSky
+                    self.rect.x = 32
                 else:
-                    self.img = self.imgPipe
+                    self.rect.x = 0
                 self.coords = (i,j)
-                Draw.drawBlit(screen, self)
+                Draw.drawBlitRect(screen, self)
                 i+= self.size
             j+= self.size
             i = self.depart
@@ -59,11 +65,11 @@ class tilemap(exampleClass.example):
         for ligne in self.tab:
             for colonne in ligne:
                 if colonne == "0":
-                    self.img = self.imgSky
+                    self.rect.x = 32
                 else:
-                    self.img = self.imgPipe
+                    self.rect.x = 0
                 self.coords = (i,j)
-                Draw.drawBlit(screen, self)
+                Draw.drawBlitRect(screen, self)
                 i+= self.size
             j+= self.size
             i = 0

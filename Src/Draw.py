@@ -44,6 +44,11 @@ def drawBlit(screen, *arg):
     for x in arg:
         screen.blit(x.getImg(), x.getCoords())
 
+#Blit des parties des surfaces sur l'écran
+def drawBlitRect(screen, *arg):
+    for x in arg:
+        screen.blit(x.getImg(), x.getCoords(), x.getRect())
+
 #Dessine des rectangles
 def drawRect(screen, *arg):
     for x in arg:
