@@ -16,7 +16,7 @@ class tilemap(exampleClass.example):
         self.temps = Draw.getTime()
         self.tab = Utils.loadCSV()
         self.addTemps = 400
-        self.vitesse = 3
+        self.vitesse = 1
         self.rect = Draw.createRect(0, 0, self.size, self.size)
 
     #augmente la vitesse de défilement

@@ -56,7 +56,7 @@ def drawRect(screen, *arg):
 
 #Retourne une police pour écrire sur l'écran
 def creerFont():
-    return pg.font.SysFont("Comic Sans MS", 50)
+    return pg.font.SysFont("Comic Sans MS", 30)
 
 ########################################################################
 ########## KEYBOAD #####################################################

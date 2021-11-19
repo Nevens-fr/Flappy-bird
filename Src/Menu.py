@@ -15,7 +15,7 @@ def menu(screen, WIDTH, HEIGHT):
     s = Spacebar.spaceBarKey(WIDTH * 0.35, HEIGHT * 0.6)
     t = affichable((WIDTH *0.3,HEIGHT* 0.1), "Assets/title.png")
     score = affichable((WIDTH * 0.8, HEIGHT*0.8), "Assets/score.png")
-    pts = Points.Points(WIDTH * 0.87, HEIGHT*0.9)
+    pts = Points.Points(WIDTH * 0.87, HEIGHT*0.87)
     pts.setPts(Utils.loadScore())
 
     while True :
@@ -51,7 +51,7 @@ def gameOver(screen, WIDTH, HEIGHT):
 def jeu(screen, WIDTH, HEIGHT):
     m = Map.tilemap() 
     p = Player.joueur(WIDTH*0.1, HEIGHT/2)
-    pts = Points.Points(10, 10)
+    pts = Points.Points(13, 7)
 
     while True :
         Draw.clearScreen(screen)        # nettoie l'écran

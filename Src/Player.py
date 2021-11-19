@@ -30,7 +30,7 @@ class joueur(exampleClass.example):
 
     #Fait chuter le joueur au fur et à mesure
     def updatePlayerChute(self):
-        self.coordY +=2
+        self.coordY +=1
         self.coords = (self.coordX, self.coordY)
         self.rect.x = 0
 
