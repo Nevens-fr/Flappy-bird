@@ -24,7 +24,7 @@ class joueur(exampleClass.example):
 
     #Fait chuter le joueur au fur et à mesure
     def updatePlayerChute(self):
-        self.coordY +=1
+        self.coordY +=2
         self.coords = (self.coordX, self.coordY)
 
     #Fait monter le joueur si la touche espace est activée
