@@ -115,3 +115,27 @@ def createNextObstacle(map):
         return new0Colonne(map)                               # Nouvelle colonne vide
     else:
         return createNewObstacle(map, indice, blankSpaceLine) # Création nouvel obstacle
+
+#Compare le score avec le score précédent. Sauvegarde le meilleur des deux
+def saveScore(score):
+    f = open("Assets/score.txt", "r")
+
+    pred = int(f.readline())
+
+    f.close()
+
+    f = open("Assets/score.txt", "w")
+
+    if pred < score:
+        f.write(str(score))
+    else:
+        g.write(str(pred))
+    f.close
+
+#Charge le meilleur score
+def loadScore():
+    f = open("Assets/score.txt", "r")
+    tmp = int(f.readline())
+    f.close()
+    return tmp
+

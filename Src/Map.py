@@ -73,3 +73,5 @@ class tilemap(exampleClass.example):
         if self.depart <= (-1 * self.size):
             self.tab = Utils.createNextObstacle(self.tab)
             self.temps = Draw.getTime()
+            return True
+        return False

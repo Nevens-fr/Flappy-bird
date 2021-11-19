@@ -49,6 +49,9 @@ def drawRect(screen, *arg):
     for x in arg:
         pg.draw.rect(screen, x.getColor(), x.getImg())
 
+#Retourne une police pour écrire sur l'écran
+def creerFont():
+    return pg.font.SysFont("Comic Sans MS", 30)
 
 ########################################################################
 ########## KEYBOAD #####################################################

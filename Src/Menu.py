@@ -5,6 +5,8 @@ import Player
 import Draw
 from Affichable import affichable
 import Spacebar
+import Points
+import Utils
 
 #Affichage d'un menu
 def menu(screen, WIDTH, HEIGHT):
@@ -44,17 +46,21 @@ def gameOver(screen, WIDTH, HEIGHT):
 def jeu(screen, WIDTH, HEIGHT):
     m = Map.tilemap() 
     p = Player.joueur(WIDTH*0.1, HEIGHT/2)
+    pts = Points.Points(10, 10)
 
     while True :
         Draw.clearScreen(screen)        # nettoie l'écran
         m.afficheMap(screen)            # affichage map
         p.updatePlayerMovement(screen)  # Mouvements du joueur
         p.drawPlayer(screen)            # affichage du joueur
+        pts.afficherPoints(screen)      # affichage des points
         Draw.drawScreenUpdate()         # actualisation de l'écran
         Draw.quit()                     # vérification de l'état de la fenêtre (croix)
-        m.updateMap()                   # Change la carte au fur et à mesure
-        if p.collisions(m):                 # vérifie les collisions
+        if m.updateMap():               # Change la carte au fur et à mesure
+            pts.addPoints()             # augmentation des points
+        if p.collisions(m):             # vérifie les collisions
             gameOver(screen, WIDTH, HEIGHT)
+            Utils.saveScore(pts.getPts())
             break
 
         if Draw.escapeKey():            # le joueur veut revenir au menu

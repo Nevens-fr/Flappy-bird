@@ -9,6 +9,7 @@ class affichable:
     def __init__(self, coords, path):
         self.img = Draw.createImg(path)
         self.coords = coords
+        
     def getImg(self):
         return self.img
     def getCoords(self):
