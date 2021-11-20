@@ -12,3 +12,6 @@ Draw.drawScreenUpdate()
 Draw.attente(1500)
 
 Menu.menu(screen, WIDTH, HEIGHT)
+
+#pyinstaller --add-data "../Assets/;./Assets/" main.py
+#commande de compilation
