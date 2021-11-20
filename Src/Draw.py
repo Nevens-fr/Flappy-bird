@@ -1,4 +1,5 @@
 import pygame as pg
+import sys
 
 # Création et set up de la fenetre
 def create_window(width, height, title, logoPath):
@@ -14,7 +15,7 @@ def create_window(width, height, title, logoPath):
 
 #Nettoie l'écran des images résiduelles
 def clearScreen(screen):
-    screen.fill(0)
+    screen.fill((0,0,0))
 
 def attente(temps):
     pg.time.wait(temps)
@@ -74,7 +75,7 @@ def spaceBarKey():
 def quit():
     for events in pg.event.get():
         if events.type == pg.QUIT:
-            exit()
+            sys.exit()
 
 #renvoie vrai si la touche echap est utilisée
 def escapeKey():

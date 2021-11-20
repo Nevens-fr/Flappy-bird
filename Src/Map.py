@@ -15,14 +15,18 @@ class tilemap(exampleClass.example):
         self.depart = 0
         self.temps = Draw.getTime()
         self.tab = Utils.loadCSV()
-        self.addTemps = 400
-        self.vitesse = 1
+        self.addTemps = 30
+        self.vitesse = 2
         self.rect = Draw.createRect(0, 0, self.size, self.size)
+        self.bool = False
 
     #augmente la vitesse de défilement
     def addVitesse(self):
         self.vitesse += 1
+        if self.addTemps > 0:
+            self.addTemps -= self.vitesse + self.vitesse /2
 
+    #getter du rectangle de sélection du sprite a afficher
     def getRect(self):
         return self.rect
 
@@ -35,19 +39,15 @@ class tilemap(exampleClass.example):
         return self.size
 
     #Affichage de la map
-    # screen : l'écran sur lequel affiché
+    # screen : l'écran sur lequel afficher
     def afficheMap(self, screen):
-        if self.depart > -1 * self.size:
-            i = self.depart
-        else:
-            i = 0
-            self.depart = 0
+        i = self.depart
         j = 0
     
         for ligne in self.tab:
             for colonne in ligne:
                 if colonne == "0":
-                    self.rect.x = 32
+                    self.rect.x = self.size
                 else:
                     self.rect.x = 0
                 self.coords = (i,j)
@@ -55,7 +55,17 @@ class tilemap(exampleClass.example):
                 i+= self.size
             j+= self.size
             i = self.depart
-        self.depart -= self.vitesse
+
+        if self.temps + self.addTemps <= Draw.getTime():
+            self.temps = Draw.getTime()
+            if self.depart <= -1 * self.size:
+                self.bool = True
+                i = 0
+                self.depart = 0
+            else:
+                self.depart -= self.vitesse
+                self.bool = False
+            
 
     #Affichage fixe de la map pour le menu
     def affichageMapFixe(self, screen):
@@ -76,8 +86,8 @@ class tilemap(exampleClass.example):
             
     #Met la map à jour
     def updateMap(self):
-        if self.depart <= (-1 * self.size):
+        if self.bool:
             self.tab = Utils.createNextObstacle(self.tab)
-            self.temps = Draw.getTime()
+            self.bool = False
             return True
         return False

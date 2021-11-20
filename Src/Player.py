@@ -17,7 +17,7 @@ class joueur(exampleClass.example):
         self.coordX = coordX
         self.coordY = coordY
         self.addTemps = 10
-        self.addMove = 5
+        self.addMove = 3
         self.yBase = coordY
         self.direction = 0
 
@@ -51,12 +51,12 @@ class joueur(exampleClass.example):
     def animation(self):
         if self.temps + self.addTemps <= Draw.getTime():
             if self.direction == 0 and self.coordY >= self.yBase - 20:
-                self.coordY -= 2
+                self.coordY -= 1
                 self.rect.x = self.w
             elif self.direction == 0 and self.coordY < self.yBase - 20:
                 self.direction = 1
             elif self.direction == 1 and self.coordY <= self.yBase + 20:
-                self.coordY += 2
+                self.coordY += 1
                 self.rect.x = 0
             elif self.direction == 1 and self.coordY > self.yBase + 20:
                 self.direction = 0

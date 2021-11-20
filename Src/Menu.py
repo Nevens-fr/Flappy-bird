@@ -7,6 +7,7 @@ from Affichable import affichable
 import Spacebar
 import Points
 import Utils
+import sys
 
 #Affichage d'un menu
 def menu(screen, WIDTH, HEIGHT):
@@ -33,7 +34,7 @@ def menu(screen, WIDTH, HEIGHT):
             jeu(screen, WIDTH, HEIGHT)
             pts.setPts(Utils.loadScore())
         if Draw.escapeKey():
-            exit()
+            sys.exit()
 
 def ecranNoir(screen):
     screen.fill(0)
@@ -62,7 +63,7 @@ def jeu(screen, WIDTH, HEIGHT):
         Draw.drawScreenUpdate()         # actualisation de l'écran
         Draw.quit()                     # vérification de l'état de la fenêtre (croix)
         if m.updateMap():               # Change la carte au fur et à mesure
-            pts.addPoints()             # augmentation des points
+            pts.addPoints()             
         if pts.speedUp():               # augmente la vitesse de la map selon le score
             m.addVitesse()
         if p.collisions(m):             # vérifie les collisions

@@ -111,7 +111,7 @@ def createNextObstacle(map):
         return new0Colonne(map)                               # Nouvelle colonne vide
     elif i == len(map[0]) -1:
         return copieDerniereColonne(map)                      # Rajoute une colonne identique à la précédente
-    elif i == (len(map[0]) -1) -(blankSpace -1):
+    elif i == (len(map[0]) -1) -(blankSpace - 1):
         return new0Colonne(map)                               # Nouvelle colonne vide
     else:
         return createNewObstacle(map, indice, blankSpaceLine) # Création nouvel obstacle
